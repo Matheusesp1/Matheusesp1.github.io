@@ -28,19 +28,21 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 			var lon2 = document.getElementById('long1').value;
 
 		
-
+        var b = lat;
+        var c = lon;
+		
 		
         hav(lat,lon,lat2,lon2);
-		function hav(lat, lon, lat2, lon2) {
+	function hav(lat, lon, lat2, lon2) {
         var deg2rad = 0.017453292519943295; 
         var cos = Math.cos;
-        lat *= deg2rad;
-        lon *= deg2rad;
+        b *= deg2rad;
+        c *= deg2rad;
         lat2 *= deg2rad;
         lon2 *= deg2rad;
         var diam = 12742; 
-        var dLat = lat2 - lat;
-        var dLon = lon2 - lon;
+        var dLat = lat2 - b;
+        var dLon = lon2 - c;
         var a =  Number ( (1 - cos(dLat)) + (1 - cos(dLon)) * cos(lat1) * cos(lat2)) / 2;
 
         
